@@ -56,7 +56,7 @@ Trzy progi wypłat: **8–9**, **10–11**, **12+** symboli (mnożnik stawki):
 | L2 | Izotop pomarańczowy             | 0.8  | 2     | 8    |
 | L3 | Izotop żółty                    | 0.5  | 1.5   | 5    |
 | L4 | Izotop zielony                  | 0.4  | 1.2   | 4    |
-| L5 | Izotop niebieski                | 0.25 | 1     | 3    |
+| L5 | Izotop niebieski                | 0.2  | 1     | 3    |
 
 ### Specjalne
 
