@@ -14,3 +14,12 @@ math/optimization_program/target/
 
 # OS/editor
 .DS_Store
+
+# Frontend (web-sdk workspace)
+frontend/node_modules/
+frontend/**/node_modules/
+frontend/**/.svelte-kit/
+frontend/**/.turbo/
+frontend/.turbo/
+frontend/apps/*/build/
+frontend/apps/*/storybook-static/
