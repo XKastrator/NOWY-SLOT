@@ -1,0 +1,16 @@
+# Generated math results (reproducible via games/<game>/run.py)
+math/games/*/library/
+math/games/*/library_optimized/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+env/
+.venv/
+
+# Rust build artifacts
+math/optimization_program/target/
+
+# OS/editor
+.DS_Store
