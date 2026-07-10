@@ -43,7 +43,7 @@ Optymalizator RTP wymaga Rusta: `cd math/optimization_program && cargo build --r
 - [x] Research (SDK, benchmarki top slotów: Gates of Olympus 1000, Sugar Rush 1000)
 - [x] Design doc
 - [x] Model matematyczny (4 tryby zakładów, custom eventy dla frontendu)
-- [x] Symulacje + optymalizacja RTP + weryfikacja formatu RGS
+- [x] Symulacje + optymalizacja RTP + weryfikacja formatu RGS (4×96.5000%, szczegóły w design docu §13)
 - [ ] Frontend (web-sdk: Svelte + PIXI) — etap 2
 - [ ] Assety graficzne i dźwiękowe — etap 2
 - [ ] Upload na Stake Engine ACP — etap 3

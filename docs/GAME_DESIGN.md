@@ -220,3 +220,18 @@ NOWY-SLOT/
 5. **Eventy zaprojektowane pod frontend** — każda mechanika ma zdarzenie
    w books, więc prezentacja (anticipation, mutacja, temperatura) jest
    deterministyczna i zgodna z RGS.
+
+## 13. Zweryfikowane wyniki symulacji (250k books, po optymalizacji)
+
+Pipeline: 250 000 symulacji → optymalizator Rust → weryfikacja formatu RGS (SHA-256 OK).
+Wszystkie tryby zbalansowane **dokładnie do RTP 96.5000%**.
+
+| Tryb | RTP | Hit rate (win>0) | Bonus HR | Śr. bonus | Super HR | Śr. super | Wincap HR |
+|------|-----|------------------|----------|-----------|----------|-----------|-----------|
+| base | 96.50% | 29.9% | 1/220 | 66.0× | 1/5005 | 301.7× | 1/2 143 541 |
+| bonushunt | 96.50% | 30.4% | 1/110 | 57.8× | 1/3447 | 301.8× | 1/1 723 077 |
+| bonus (buy 100×) | 96.50% | 100% | 1/1 | 96.0× | — | — | 1/20 000 |
+| superbonus (buy 500×) | 96.50% | 100% | — | — | 1/1 | 479.7× | 1/3424 |
+
+Uwaga: tryby buy przekraczają limity wolatylności "3 gwiazdek" Stake Engine
+(oczekiwane — klasyfikują się jako 4–5★, jak wszystkie sloty klasy GoO).
