@@ -44,6 +44,8 @@ Optymalizator RTP wymaga Rusta: `cd math/optimization_program && cargo build --r
 - [x] Design doc
 - [x] Model matematyczny (4 tryby zakładów, custom eventy dla frontendu)
 - [x] Symulacje + optymalizacja RTP + weryfikacja formatu RGS (4×96.5000%, szczegóły w design docu §13)
-- [ ] Frontend (web-sdk: Svelte + PIXI) — etap 2
-- [ ] Assety graficzne i dźwiękowe — etap 2
+- [x] Frontend (web-sdk: Svelte + PIXI) — gra działa e2e na mock RGS
+      (custom eventy: Temperatura, Mutacja, scatter pay; prawdziwe books w Storybooku;
+      lokalne granie: `frontend/tools/mock-rgs/`)
+- [ ] Docelowe assety graficzne i dźwiękowe (obecnie placeholdery z sample'a web-sdk) — etap 3
 - [ ] Upload na Stake Engine ACP — etap 3
