@@ -40,7 +40,18 @@ const server = https.createServer(
       }
       if (req.url === '/wallet/play') {
         const mode = FORCE_MODE || vars.mode || 'base';
-        const pool = books[mode] || books.base;
+        // Walidacja jak na prawdziwym RGS: nieznany tryb i zla kwota = blad
+        // (wczesniejszy cichy fallback na base ukrywal zle nazwy trybow).
+        if (!books[mode]) {
+          return send({ error: { statusCode: 'ERR_VAL', message: `invalid mode: ${mode}` } });
+        }
+        if (
+          typeof vars.amount !== 'number' || vars.amount < 100000 ||
+          vars.amount > 1000000000 || vars.amount % 100000 !== 0
+        ) {
+          return send({ error: { statusCode: 'ERR_VAL', message: 'invalid amount' } });
+        }
+        const pool = books[mode];
         const book = pool[Math.floor(Math.random() * pool.length)];
         balance -= vars.amount;
         activeRound = {

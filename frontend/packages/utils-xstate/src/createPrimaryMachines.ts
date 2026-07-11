@@ -12,7 +12,9 @@ const handleRequestBet = async ({ onError }: { onError: () => void }) => {
 			rgsUrl: stateUrlDerived.rgsUrl(),
 			sessionID: stateUrlDerived.sessionID(),
 			currency: stateBet.currency,
-			mode: stateBet.activeBetModeKey,
+			// Nazwy trybów w opublikowanej matematyce są lowercase (base/bonus/...),
+			// a komponenty SDK miejscami ustawiają klucz 'BASE' — normalizujemy.
+			mode: stateBet.activeBetModeKey.toLowerCase(),
 			amount: stateBet.betAmount,
 		});
 
