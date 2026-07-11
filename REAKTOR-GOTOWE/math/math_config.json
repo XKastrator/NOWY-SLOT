@@ -1,0 +1,408 @@
+{
+    "game_id": "reaktor",
+    "bet_modes": [
+        {
+            "bet_mode": "base",
+            "cost": 1.0,
+            "rtp": 0.965,
+            "max_win": 10000.0
+        },
+        {
+            "bet_mode": "bonushunt",
+            "cost": 1.25,
+            "rtp": 0.965,
+            "max_win": 10000.0
+        },
+        {
+            "bet_mode": "bonus",
+            "cost": 100.0,
+            "rtp": 0.965,
+            "max_win": 10000.0
+        },
+        {
+            "bet_mode": "superbonus",
+            "cost": 500.0,
+            "rtp": 0.965,
+            "max_win": 10000.0
+        }
+    ],
+    "fences": [
+        {
+            "bet_mode": "base",
+            "fences": [
+                {
+                    "name": "wincap",
+                    "avg_win": "10000",
+                    "rtp": "0.005",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 10000,
+                        "win_range_end": 10000,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "superfreegame",
+                    "hr": "5000",
+                    "rtp": "0.06",
+                    "identity_condition": {
+                        "search": [
+                            {
+                                "name": "kind",
+                                "value": "6"
+                            },
+                            {
+                                "name": "symbol",
+                                "value": "scatter"
+                            }
+                        ],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "freegame",
+                    "hr": "220",
+                    "rtp": "0.3",
+                    "identity_condition": {
+                        "search": [
+                            {
+                                "name": "symbol",
+                                "value": "scatter"
+                            }
+                        ],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "0",
+                    "avg_win": "0",
+                    "rtp": "0",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 0,
+                        "win_range_end": 0,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "basegame",
+                    "hr": "3.4",
+                    "rtp": "0.6",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonushunt",
+            "fences": [
+                {
+                    "name": "wincap",
+                    "avg_win": "10000",
+                    "rtp": "0.005",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 10000,
+                        "win_range_end": 10000,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "superfreegame",
+                    "hr": "3430",
+                    "rtp": "0.07",
+                    "identity_condition": {
+                        "search": [
+                            {
+                                "name": "kind",
+                                "value": "6"
+                            },
+                            {
+                                "name": "symbol",
+                                "value": "scatter"
+                            }
+                        ],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "freegame",
+                    "hr": "110",
+                    "rtp": "0.42",
+                    "identity_condition": {
+                        "search": [
+                            {
+                                "name": "symbol",
+                                "value": "scatter"
+                            }
+                        ],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "0",
+                    "avg_win": "0",
+                    "rtp": "0",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 0,
+                        "win_range_end": 0,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "basegame",
+                    "hr": "3.4",
+                    "rtp": "0.47",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonus",
+            "fences": [
+                {
+                    "name": "wincap",
+                    "avg_win": "10000",
+                    "rtp": "0.005",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 10000,
+                        "win_range_end": 10000,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "freegame",
+                    "hr": "x",
+                    "rtp": "0.96",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                }
+            ]
+        },
+        {
+            "bet_mode": "superbonus",
+            "fences": [
+                {
+                    "name": "wincap",
+                    "avg_win": "10000",
+                    "rtp": "0.01",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": 10000,
+                        "win_range_end": 10000,
+                        "opposite": false
+                    }
+                },
+                {
+                    "name": "superfreegame",
+                    "hr": "x",
+                    "rtp": "0.955",
+                    "identity_condition": {
+                        "search": [],
+                        "win_range_start": -1,
+                        "win_range_end": -1,
+                        "opposite": false
+                    }
+                }
+            ]
+        }
+    ],
+    "dresses": [
+        {
+            "bet_mode": "base",
+            "dresses": [
+                {
+                    "fence": "basegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        1,
+                        2
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "basegame",
+                    "scale_factor": "1.4",
+                    "identity_condition_win_range": [
+                        10,
+                        20
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "freegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        100,
+                        200
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "freegame",
+                    "scale_factor": "0.9",
+                    "identity_condition_win_range": [
+                        4000,
+                        8000
+                    ],
+                    "prob": 1.0
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonushunt",
+            "dresses": [
+                {
+                    "fence": "basegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        1,
+                        2
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "freegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        100,
+                        200
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "freegame",
+                    "scale_factor": "0.9",
+                    "identity_condition_win_range": [
+                        4000,
+                        8000
+                    ],
+                    "prob": 1.0
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonus",
+            "dresses": [
+                {
+                    "fence": "freegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        50,
+                        100
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "freegame",
+                    "scale_factor": "0.9",
+                    "identity_condition_win_range": [
+                        4000,
+                        8000
+                    ],
+                    "prob": 1.0
+                }
+            ]
+        },
+        {
+            "bet_mode": "superbonus",
+            "dresses": [
+                {
+                    "fence": "superfreegame",
+                    "scale_factor": "1.2",
+                    "identity_condition_win_range": [
+                        200,
+                        500
+                    ],
+                    "prob": 1.0
+                },
+                {
+                    "fence": "superfreegame",
+                    "scale_factor": "0.9",
+                    "identity_condition_win_range": [
+                        5000,
+                        9000
+                    ],
+                    "prob": 1.0
+                }
+            ]
+        }
+    ],
+    "bias": [
+        {
+            "bet_mode": "base",
+            "bias": [
+                {
+                    "criteria": "basegame",
+                    "range": [
+                        3.0,
+                        5.0
+                    ],
+                    "prob": 0.5
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonushunt",
+            "bias": [
+                {
+                    "criteria": "basegame",
+                    "range": [
+                        3.0,
+                        5.0
+                    ],
+                    "prob": 0.5
+                }
+            ]
+        },
+        {
+            "bet_mode": "bonus",
+            "bias": [
+                {
+                    "criteria": "freegame",
+                    "range": [
+                        90.0,
+                        150.0
+                    ],
+                    "prob": 0.1
+                }
+            ]
+        },
+        {
+            "bet_mode": "superbonus",
+            "bias": [
+                {
+                    "criteria": "superfreegame",
+                    "range": [
+                        400.0,
+                        700.0
+                    ],
+                    "prob": 0.1
+                }
+            ]
+        }
+    ]
+}

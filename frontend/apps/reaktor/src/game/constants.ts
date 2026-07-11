@@ -268,12 +268,7 @@ const backgroundHigh = {
 export const SYMBOL_INFO_MAP = {
 	H1: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H1',
-			animationName: 'h1',
-			sizeRatios: { width: 0.5 * 1.15, height: HIGH_SYMBOL_SIZE * 0.57 },
-		},
+		win: h1Static,
 		postWinStatic: h1Static,
 		static: h1Static,
 		spin: h1Static,
@@ -281,12 +276,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	H2: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H2',
-			animationName: 'h2',
-			sizeRatios: { width: 0.5, height: HIGH_SYMBOL_SIZE * 0.57 },
-		},
+		win: h2Static,
 		postWinStatic: h2Static,
 		static: h2Static,
 		spin: h2Static,
@@ -294,12 +284,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	H3: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H3',
-			animationName: 'h3',
-			sizeRatios: { width: 0.5 * 0.9, height: HIGH_SYMBOL_SIZE * 0.53 },
-		},
+		win: h3Static,
 		postWinStatic: h3Static,
 		static: h3Static,
 		spin: h3Static,
@@ -307,12 +292,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	H4: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H4',
-			animationName: 'h4',
-			sizeRatios: { width: 0.5 * 0.9, height: HIGH_SYMBOL_SIZE * 0.53 },
-		},
+		win: h4Static,
 		postWinStatic: h4Static,
 		static: h4Static,
 		spin: h4Static,
@@ -320,12 +300,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	L5: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'H5',
-			animationName: 'h5',
-			sizeRatios: { width: 0.5 * 0.9, height: HIGH_SYMBOL_SIZE * 0.53 },
-		},
+		win: h5Static,
 		postWinStatic: h5Static,
 		static: h5Static,
 		spin: h5Static,
@@ -333,12 +308,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	L1: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'L1',
-			animationName: 'l1',
-			sizeRatios: { width: 0.5 * 0.75, height: LOW_SYMBOL_SIZE * 0.65 },
-		},
+		win: l1Static,
 		postWinStatic: l1Static,
 		static: l1Static,
 		spin: l1Static,
@@ -346,12 +316,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	L2: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'L2',
-			animationName: 'l2',
-			sizeRatios: { width: 0.5 * 0.75, height: LOW_SYMBOL_SIZE * 0.65 },
-		},
+		win: l2Static,
 		postWinStatic: l2Static,
 		static: l2Static,
 		spin: l2Static,
@@ -359,12 +324,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	L3: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'L3',
-			animationName: 'l3',
-			sizeRatios: { width: 0.5 * 0.75, height: LOW_SYMBOL_SIZE * 0.63 },
-		},
+		win: l3Static,
 		postWinStatic: l3Static,
 		static: l3Static,
 		spin: l3Static,
@@ -372,12 +332,7 @@ export const SYMBOL_INFO_MAP = {
 	},
 	L4: {
 		explosion,
-		win: {
-			type: 'spine',
-			assetKey: 'L4',
-			animationName: 'l4',
-			sizeRatios: { width: 0.5 * 0.75, height: LOW_SYMBOL_SIZE * 0.63 },
-		},
+		win: l4Static,
 		postWinStatic: l4Static,
 		static: l4Static,
 		spin: l4Static,
@@ -521,6 +476,23 @@ export const MULTIPLIER_BACKGROUND_INFO_MAP = {
 	M_5: backgroundMid,
 	M_7: backgroundMid,
 	M_10: backgroundHigh,
+};
+
+// Matematyka REAKTORA losuje wartości prętów 2–1000, a tylko 2/4/5/7/10 mają
+// animacje z wypaloną cyfrą. Pozostałe wartości renderujemy animacją tieru
+// (low/mid/high) + nakładką BitmapText z wartością (Symbol.svelte).
+export const MULTIPLIER_TIER_INFO_MAP = {
+	low: backgroundLow,
+	mid: backgroundMid,
+	high: backgroundHigh,
+} as const;
+
+export const MULTIPLIER_BAKED_VALUES = [2, 4, 5, 7, 10];
+
+export const multiplierTier = (multiplier: number): keyof typeof MULTIPLIER_TIER_INFO_MAP => {
+	if (multiplier < 5) return 'low';
+	if (multiplier < 10) return 'mid';
+	return 'high';
 };
 
 export const SCATTER_LAND_SOUND_MAP = {

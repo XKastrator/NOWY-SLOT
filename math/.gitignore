@@ -24,6 +24,7 @@ __pycache__
 *.env
 *.DS_Store
 *.toml
+!optimization_program/Cargo.toml
 
 **/site/*
 

@@ -9,6 +9,8 @@ import {
 	SYMBOL_INFO_MAP,
 	BOARD_DIMENSIONS,
 	MULTIPLIER_BACKGROUND_INFO_MAP,
+	MULTIPLIER_TIER_INFO_MAP,
+	multiplierTier,
 } from './constants';
 import { eventEmitter } from './eventEmitter';
 import type { Bet, BookEventOfType } from './typesBookEvent';
@@ -73,7 +75,18 @@ export const getSymbolInfo = ({
 	state: SymbolState;
 }) => {
 	const symbolKey = getSymbolKey({ rawSymbol });
-	return SYMBOL_INFO_MAP[symbolKey][state];
+	// Pręty (M / M_TAKEN) mają dowolne wartości 2–1000; mapa zna tylko klucze
+	// z wypaloną cyfrą (M_2 itd.), reszta dostaje animację tieru.
+	const symbolInfo =
+		SYMBOL_INFO_MAP[symbolKey] ??
+		(rawSymbol.multiplier !== undefined
+			? MULTIPLIER_TIER_INFO_MAP[multiplierTier(rawSymbol.multiplier)]
+			: undefined);
+	if (symbolInfo === undefined) {
+		console.warn(`Unknown symbol "${String(symbolKey)}" — falling back to low multiplier tier.`);
+		return MULTIPLIER_TIER_INFO_MAP.low[state];
+	}
+	return symbolInfo[state];
 };
 
 export const getSymbolBackgroundInfo = ({
@@ -85,7 +98,10 @@ export const getSymbolBackgroundInfo = ({
 }) => {
 	if (rawSymbol.name === 'M') {
 		const symbolKey = getSymbolKey({ rawSymbol }) as keyof typeof MULTIPLIER_BACKGROUND_INFO_MAP;
-		return MULTIPLIER_BACKGROUND_INFO_MAP[symbolKey][state];
+		const backgroundInfo =
+			MULTIPLIER_BACKGROUND_INFO_MAP[symbolKey] ??
+			MULTIPLIER_TIER_INFO_MAP[multiplierTier(rawSymbol.multiplier ?? 2)];
+		return backgroundInfo[state];
 	}
 
 	return null;

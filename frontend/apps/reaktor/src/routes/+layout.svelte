@@ -2,10 +2,18 @@
 	import { type Snippet } from 'svelte';
 	import { GlobalStyle } from 'components-ui-html';
 	import { Authenticate, LoaderStakeEngine, LoaderExample, LoadI18n } from 'components-shared';
+	import { stateMeta, stateBet } from 'state-shared';
 	import Game from '../components/Game.svelte';
 	import { setContext } from '../game/context';
+	import { betModeMeta } from '../game/betModeMeta';
 
 	import messagesMap from '../i18n/messagesMap';
+
+	// Tryby zakładów muszą odpowiadać matematyce REAKTORA (base/bonushunt/
+	// bonus/superbonus) — domyślne meta z SDK ma tryby sample'a (BONUS/SUPER 200x),
+	// których RGS nie zna, przez co zakup bonusu kończy się ERR_VAL.
+	stateMeta.betModeMeta = betModeMeta;
+	stateBet.activeBetModeKey = 'base';
 
 	type Props = { children: Snippet };
 

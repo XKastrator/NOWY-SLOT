@@ -25,8 +25,8 @@ const winLevelSoundsPlay = ({ winLevelData }: { winLevelData: WinLevelData }) =>
 
 const winLevelSoundsStop = () => {
 	eventEmitter.broadcast({ type: 'soundStop', name: 'sfx_bigwin_coinloop' });
-	if (stateBet.activeBetModeKey === 'SUPERSPIN' || stateGame.gameType === 'freegame') {
-		// check if SUPERSPIN, when finishing a bet.
+	if (stateBet.activeBetModeKey === 'superbonus' || stateGame.gameType === 'freegame') {
+		// super bonus lub free spiny — muzyka free spinów
 		eventEmitter.broadcast({ type: 'soundMusic', name: 'bgm_freespin' });
 	} else {
 		eventEmitter.broadcast({ type: 'soundMusic', name: 'bgm_main' });
