@@ -1,5 +1,5 @@
 REAKTOR (Meltdown) - paczka do wgrania na Stake Engine ACP
-Data wygenerowania: 2026-07-11 10:35 UTC
+Data wygenerowania: 2026-07-11 11:56 UTC
 Branch: claude/repo-analysis-prep-7vo75s
 
 JAK POBRAC WLASCIWA WERSJE:
@@ -16,7 +16,7 @@ pliki MM_*) - docelowe assety REAKTORA to osobny etap 3.
 SHA-256 najwazniejszych plikow:
 04d78112e5c6e33c4cec1b3be016207d18223a8c7808f2459125c43316bc0c52  math/index.json
 5c7b9e64d151d0e27a119d4d601265f0be9d267c1b4f1202682a12f3df61c7a8  math/config.json
-161d93b7d9eac77634bb07c55a1f0a1dbc61a71b4f898a90ba63785f8e136b5d  frontend/index.html
+354116400b58e6b87f4c43995e25c67450c8ef98978e574ac986e96baf95d924  frontend/index.html
 d1d65a2cff7500d4eb7dbe7adea90652044fccf3af99bf012f4626e78c815e34  math/books_base.jsonl.zst
 967c2e96a6e71beb81c5904422d8fac387c6b87986e8dc833acca52d7d99495c  math/books_bonus.jsonl.zst
 e09173f08a1ba3729a23ad6fcda6cb369c00d4fafd5f19b5910a3c35080105dc  math/books_bonushunt.jsonl.zst
