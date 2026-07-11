@@ -523,6 +523,23 @@ export const MULTIPLIER_BACKGROUND_INFO_MAP = {
 	M_10: backgroundHigh,
 };
 
+// Matematyka REAKTORA losuje wartości prętów 2–1000, a tylko 2/4/5/7/10 mają
+// animacje z wypaloną cyfrą. Pozostałe wartości renderujemy animacją tieru
+// (low/mid/high) + nakładką BitmapText z wartością (Symbol.svelte).
+export const MULTIPLIER_TIER_INFO_MAP = {
+	low: backgroundLow,
+	mid: backgroundMid,
+	high: backgroundHigh,
+} as const;
+
+export const MULTIPLIER_BAKED_VALUES = [2, 4, 5, 7, 10];
+
+export const multiplierTier = (multiplier: number): keyof typeof MULTIPLIER_TIER_INFO_MAP => {
+	if (multiplier < 5) return 'low';
+	if (multiplier < 10) return 'mid';
+	return 'high';
+};
+
 export const SCATTER_LAND_SOUND_MAP = {
 	1: 'sfx_scatter_stop_1',
 	2: 'sfx_scatter_stop_2',
