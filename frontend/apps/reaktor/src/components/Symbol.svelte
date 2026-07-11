@@ -27,7 +27,7 @@
 		props.rawSymbol.name === 'M' &&
 			props.rawSymbol.multiplier !== undefined &&
 			!MULTIPLIER_BAKED_VALUES.includes(props.rawSymbol.multiplier)
-			? `${props.rawSymbol.multiplier}x`
+			? `${props.rawSymbol.multiplier}X`
 			: null,
 	);
 </script>

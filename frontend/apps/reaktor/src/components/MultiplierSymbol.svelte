@@ -33,7 +33,7 @@
 	const multiplierText = $derived(
 		props.multiplierSymbol.rawSymbol.multiplier !== undefined &&
 			!MULTIPLIER_BAKED_VALUES.includes(props.multiplierSymbol.rawSymbol.multiplier)
-			? `${props.multiplierSymbol.rawSymbol.multiplier}x`
+			? `${props.multiplierSymbol.rawSymbol.multiplier}X`
 			: null,
 	);
 </script>
