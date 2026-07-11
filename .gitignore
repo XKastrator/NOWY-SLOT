@@ -23,3 +23,6 @@ frontend/**/.turbo/
 frontend/.turbo/
 frontend/apps/*/build/
 frontend/apps/*/storybook-static/
+
+# Lokalne certy mock RGS (generowane wg frontend/tools/mock-rgs/README.md)
+frontend/tools/mock-rgs/*.pem
