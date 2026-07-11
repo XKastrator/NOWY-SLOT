@@ -1,0 +1,118 @@
+{
+    "workingName": "REAKTOR (Meltdown)",
+    "frontendConfig": {
+        "file": "fe_config.json",
+        "sha256": "45bb0cc15271f6c737637a6d5063f9fd4d142edb9ebf708f60a38f47897e58f1"
+    },
+    "gameID": "reaktor",
+    "rtp": 96.5,
+    "betDenomination": 1000,
+    "minDenomination": 10,
+    "providerNumber": 1,
+    "standardForceFile": {
+        "file": "force.json",
+        "sha256": "8bd2a05635be15c63207f8ec2674838a32fb6c67a31c82102a575bda841fb533"
+    },
+    "bookShelfConfig": [
+        {
+            "name": "base",
+            "tables": [
+                {
+                    "file": "lookUpTable_base_0.csv",
+                    "sha256": "a0c461a6380400f0cc707e18ec41fcc930554e674aebaddaab6f20fa343453b3"
+                }
+            ],
+            "cost": 1.0,
+            "rtp": 0.965,
+            "std": 10.97,
+            "bookLength": 100000,
+            "feature": true,
+            "autoEndRoundDisabled": false,
+            "buyBonus": false,
+            "maxWin": 10000.0,
+            "booksFile": {
+                "file": "books_base.jsonl.zst",
+                "sha256": "d1d65a2cff7500d4eb7dbe7adea90652044fccf3af99bf012f4626e78c815e34"
+            },
+            "forceFile": {
+                "file": "force_record_base.json",
+                "sha256": "ef2375c1eb53328d29847585fdb7ca092be0386e2c4cff2a77a3397d381ff16a"
+            }
+        },
+        {
+            "name": "bonushunt",
+            "tables": [
+                {
+                    "file": "lookUpTable_bonushunt_0.csv",
+                    "sha256": "1e84514d861754b7a5a6cf2e83dd86eee7d62e49fb5a2e5bbc5c680e3598ad80"
+                }
+            ],
+            "cost": 1.25,
+            "rtp": 0.965,
+            "std": 9.8,
+            "bookLength": 50000,
+            "feature": true,
+            "autoEndRoundDisabled": false,
+            "buyBonus": false,
+            "maxWin": 10000.0,
+            "booksFile": {
+                "file": "books_bonushunt.jsonl.zst",
+                "sha256": "e09173f08a1ba3729a23ad6fcda6cb369c00d4fafd5f19b5910a3c35080105dc"
+            },
+            "forceFile": {
+                "file": "force_record_bonushunt.json",
+                "sha256": "d31fc5bb08b10106438e11d8d815d862bb4c81996282526b03c7c77f5c436b37"
+            }
+        },
+        {
+            "name": "bonus",
+            "tables": [
+                {
+                    "file": "lookUpTable_bonus_0.csv",
+                    "sha256": "44cf7b84cca92c7835ecee4666d2731163c49279dc8b20be9bdce91349d7a397"
+                }
+            ],
+            "cost": 100.0,
+            "rtp": 0.965,
+            "std": 1.48,
+            "bookLength": 50000,
+            "feature": false,
+            "autoEndRoundDisabled": false,
+            "buyBonus": true,
+            "maxWin": 10000.0,
+            "booksFile": {
+                "file": "books_bonus.jsonl.zst",
+                "sha256": "967c2e96a6e71beb81c5904422d8fac387c6b87986e8dc833acca52d7d99495c"
+            },
+            "forceFile": {
+                "file": "force_record_bonus.json",
+                "sha256": "ac3a52c43dc23fed82f911383fd1332c39a55a4bb265faefe41f3923581490db"
+            }
+        },
+        {
+            "name": "superbonus",
+            "tables": [
+                {
+                    "file": "lookUpTable_superbonus_0.csv",
+                    "sha256": "808c28e36b7485b29505221c449e499326f0547bcc4b61d2fe94b4fcf4b193dd"
+                }
+            ],
+            "cost": 500.0,
+            "rtp": 0.965,
+            "std": 1.06,
+            "bookLength": 40000,
+            "feature": false,
+            "autoEndRoundDisabled": false,
+            "buyBonus": true,
+            "maxWin": 10000.0,
+            "booksFile": {
+                "file": "books_superbonus.jsonl.zst",
+                "sha256": "01e7552f943ed3645131ccf6f30972ae956ebe3603edc8fb665cfe106955667f"
+            },
+            "forceFile": {
+                "file": "force_record_superbonus.json",
+                "sha256": "738bdb1dff9d457610fe8b9fd9deaa6f8fe0cd64c5ded6a7d9f5172f792f3903"
+            }
+        }
+    ]
+}
