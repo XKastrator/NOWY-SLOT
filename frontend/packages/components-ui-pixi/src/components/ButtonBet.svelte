@@ -1,17 +1,18 @@
 <script lang="ts">
-	import { Container, Text } from 'pixi-svelte';
+	import { Container, Circle } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { OnHotkey } from 'components-shared';
 	import { stateBetDerived } from 'state-shared';
 
-	import UiSprite from './UiSprite.svelte';
+	import UiIcon from './UiIcon.svelte';
 	import ButtonBetProvider from './ButtonBetProvider.svelte';
-	import { UI_BASE_FONT_SIZE, UI_BASE_SIZE } from '../constants';
-	import { i18nDerived } from '../i18n/i18nDerived';
+	import { UI_BASE_SIZE } from '../constants';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const disabled = $derived(!stateBetDerived.isBetCostAvailable());
-	const sizes = { width: UI_BASE_SIZE, height: UI_BASE_SIZE };
+	// Duzy centralny przycisk spin (wiekszy niz pozostale okragle przyciski)
+	const diameter = UI_BASE_SIZE * 1.35;
+	const sizes = { width: diameter, height: diameter };
 </script>
 
 <ButtonBetProvider>
@@ -19,32 +20,22 @@
 		<OnHotkey hotkey="Space" {disabled} {onpress} />
 		<Button {...props} {sizes} {onpress} {disabled}>
 			{#snippet children({ center, hovered })}
+				{@const isStop = !['spin_default', 'spin_disabled'].includes(key)}
 				<Container {...center}>
-					<UiSprite
-						key="bet"
-						width={sizes.width}
-						height={sizes.height}
+					<Circle
 						anchor={0.5}
-						{...disabled || ['spin_disabled', 'stop_disabled'].includes(key)
-							? {
-									backgroundColor: 0xaaaaaa,
-								}
-							: {}}
+						{diameter}
+						backgroundColor={0x04060a}
+						backgroundAlpha={0.82}
+						borderColor={disabled ? 0x777d85 : hovered ? 0xf5c542 : 0xffffff}
+						borderWidth={5}
+						borderAlpha={1}
 					/>
-					<Text
-						anchor={0.5}
-						text={['spin_default', 'spin_disabled'].includes(key)
-							? i18nDerived.bet()
-							: i18nDerived.stop()}
-						style={{
-							align: 'center',
-							wordWrap: true,
-							wordWrapWidth: 200,
-							fontFamily: 'proxima-nova',
-							fontWeight: '600',
-							fontSize: UI_BASE_FONT_SIZE * 0.9,
-							fill: 0xffffff,
-						}}
+					<UiIcon
+						name={isStop ? 'stop' : 'spin'}
+						size={diameter * 0.52}
+						color={disabled ? 0x777d85 : hovered ? 0xf5c542 : 0xffffff}
+						width={7}
 					/>
 				</Container>
 			{/snippet}
