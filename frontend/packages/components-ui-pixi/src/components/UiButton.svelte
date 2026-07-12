@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { Text } from 'pixi-svelte';
+	import { Container, Circle } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 
-	import UiSprite from './UiSprite.svelte';
+	import UiIcon, { type IconName } from './UiIcon.svelte';
 	import type { ButtonIcon } from '../types';
 	import type { Snippet } from 'svelte';
-	import { i18nDerived } from '../i18n/i18nDerived';
-	import { UI_BASE_FONT_SIZE } from '../constants';
 
 	type Props = Omit<ButtonProps, 'children'> & {
 		icon: ButtonIcon;
@@ -23,51 +21,36 @@
 		children: childrenFromParent,
 		...buttonProps
 	}: Props = $props();
+
+	// Okragly przycisk-ikona w stylu referencyjnego paska: ciemne polprzezroczyste
+	// kolo, cienka obwodka (zlota na hover/active), wektorowa ikona w srodku.
+	const diameter = $derived(Math.min(buttonProps.sizes.width, buttonProps.sizes.height));
 </script>
 
 <Button {...buttonProps}>
 	{#snippet children({ center, hovered, pressed })}
-		<UiSprite
-			{...center}
-			anchor={0.5}
-			width={buttonProps.sizes.width}
-			height={buttonProps.sizes.height}
-			backgroundColor={variant === 'dark' ? 0x06080c : 0xffffff}
-			backgroundAlpha={variant === 'dark' ? 0.62 : 1}
-			borderWidth={2}
-			borderColor={hovered ? 0xf5c542 : 0xffffff}
-			borderAlpha={hovered ? 1 : 0.9}
-			{...buttonProps.disabled
-				? {
-						backgroundColor: 0x3a3f46,
-						backgroundAlpha: 0.5,
-						borderAlpha: 0.25,
-					}
-				: {}}
-			{...active
-				? {
-						borderWidth: 6,
-						borderColor: 0xf5c542,
-						borderAlpha: 1,
-					}
-				: {}}
-		/>
+		<Container {...center}>
+			<Circle
+				anchor={0.5}
+				{diameter}
+				backgroundColor={variant === 'light' ? 0xf5c542 : 0x080a0e}
+				backgroundAlpha={variant === 'light' ? 0.9 : 0.62}
+				borderColor={active || hovered ? 0xf5c542 : 0xffffff}
+				borderWidth={active ? 4 : 2}
+				borderAlpha={active || hovered ? 1 : 0.85}
+				{...buttonProps.disabled
+					? { backgroundColor: 0x3a3f46, backgroundAlpha: 0.5, borderAlpha: 0.25 }
+					: {}}
+			/>
 
-		<Text
-			{...center}
-			anchor={0.5}
-			text={i18nDerived[icon]()}
-			style={{
-				align: 'center',
-				wordWrap: true,
-				wordWrapWidth: 200,
-				fontFamily: 'proxima-nova',
-				fontWeight: '600',
-				fontSize: UI_BASE_FONT_SIZE * 0.9,
-				fill: variant === 'dark' ? 0xffffff : 0x000000,
-			}}
-		/>
+			<UiIcon
+				name={icon as IconName}
+				size={diameter * 0.5}
+				color={variant === 'light' ? 0x101418 : buttonProps.disabled ? 0x777d85 : hovered ? 0xf5c542 : 0xffffff}
+				width={5}
+			/>
 
-		{@render childrenFromParent?.()}
+			{@render childrenFromParent?.()}
+		</Container>
 	{/snippet}
 </Button>

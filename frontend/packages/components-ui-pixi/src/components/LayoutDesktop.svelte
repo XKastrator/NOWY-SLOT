@@ -44,31 +44,34 @@
 			{@render props.amountBet({ stacked: true })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={220} scale={0.8}>
+		<!-- lewy klaster: menu + turbo -->
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={130} scale={0.8}>
 			{@render props.buttonMenu({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={220 + 150} scale={0.8}>
-			{@render props.buttonBuyBonus({ anchor: 0.5 })}
-		</Container>
-
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 4} scale={0.8}>
-			{@render props.buttonAutoSpin({ anchor: 0.5 })}
-		</Container>
-
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 5} scale={0.8}>
-			{@render props.buttonBet({ anchor: 0.5 })}
-		</Container>
-
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={160 + 150 * 6} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={270} scale={0.8}>
 			{@render props.buttonTurbo({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1440} scale={0.8}>
+		<!-- prawy klaster: autospin, wielki SPIN, feature -->
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={900} scale={0.8}>
+			{@render props.buttonAutoSpin({ anchor: 0.5 })}
+		</Container>
+
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1080}>
+			{@render props.buttonBet({ anchor: 0.5 })}
+		</Container>
+
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1260} scale={0.8}>
+			{@render props.buttonBuyBonus({ anchor: 0.5 })}
+		</Container>
+
+		<!-- stepper zakladu przy kapsule BET -->
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1430} scale={0.7}>
 			{@render props.buttonDecrease({ anchor: 0.5 })}
 		</Container>
 
-		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1440 + 150} scale={0.8}>
+		<Container y={DESKTOP_BASE_SIZE * 0.5} x={1560} scale={0.7}>
 			{@render props.buttonIncrease({ anchor: 0.5 })}
 		</Container>
 	</Container>

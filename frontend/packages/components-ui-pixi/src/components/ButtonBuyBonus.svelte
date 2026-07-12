@@ -1,12 +1,11 @@
 <script lang="ts">
-	import { Text } from 'pixi-svelte';
+	import { Container, Circle } from 'pixi-svelte';
 	import { Button, type ButtonProps } from 'components-pixi';
 	import { stateModal, stateBet, stateBetDerived } from 'state-shared';
 
-	import UiSprite from './UiSprite.svelte';
-	import { UI_BASE_FONT_SIZE, UI_BASE_SIZE } from '../constants';
+	import UiIcon from './UiIcon.svelte';
+	import { UI_BASE_SIZE } from '../constants';
 	import { getContext } from '../context';
-	import { i18nDerived } from '../i18n/i18nDerived';
 
 	const props: Partial<Omit<ButtonProps, 'children'>> = $props();
 	const { stateXstateDerived, eventEmitter } = getContext();
@@ -26,61 +25,27 @@
 		}
 	};
 
-	const getState = (value: {
-		active: boolean;
-		disabled: boolean;
-		hovered: boolean;
-		pressed: boolean;
-	}) => {
-		if (value.disabled) return 'disabled' as const;
-		if (value.pressed) return 'pressed' as const;
-		if (value.hovered) return 'hovered' as const;
-		if (value.active) return 'active' as const;
-		return 'default' as const;
-	};
 </script>
 
 <Button {...props} {sizes} {disabled} {onpress}>
 	{#snippet children({ center, hovered, pressed })}
-		{@const state = getState({
-			active,
-			disabled,
-			hovered,
-			pressed,
-		})}
-
-		<UiSprite
-			key="buyBonus"
-			{...center}
-			anchor={0.5}
-			width={sizes.width}
-			height={sizes.height}
-			{...disabled
-				? {
-						backgroundColor: 0xaaaaaa,
-					}
-				: {}}
-			{...active
-				? {
-						borderWidth: 10,
-						borderColor: 0xffffff,
-					}
-				: {}}
-		/>
-
-		<Text
-			{...center}
-			anchor={0.5}
-			text={state === 'active' ? i18nDerived.disable() : i18nDerived.buyBonus()}
-			style={{
-				align: 'center',
-				wordWrap: true,
-				wordWrapWidth: 200,
-				fontFamily: 'proxima-nova',
-				fontWeight: '600',
-				fontSize: UI_BASE_FONT_SIZE * 0.9,
-				fill: 0xffffff,
-			}}
-		/>
+		<Container {...center}>
+			<Circle
+				anchor={0.5}
+				diameter={sizes.width}
+				backgroundColor={0x080a0e}
+				backgroundAlpha={0.62}
+				borderColor={active || hovered ? 0xf5c542 : 0xffffff}
+				borderWidth={active ? 4 : 2}
+				borderAlpha={active || hovered ? 1 : 0.85}
+				{...disabled ? { backgroundColor: 0x3a3f46, backgroundAlpha: 0.5, borderAlpha: 0.25 } : {}}
+			/>
+			<UiIcon
+				name="buyBonus"
+				size={sizes.width * 0.5}
+				color={disabled ? 0x777d85 : active || hovered ? 0xf5c542 : 0xffffff}
+				width={5}
+			/>
+		</Container>
 	{/snippet}
 </Button>
