@@ -32,16 +32,23 @@
 			anchor={0.5}
 			width={buttonProps.sizes.width}
 			height={buttonProps.sizes.height}
-			backgroundColor={variant === 'dark' ? 0x000000 : 0xffffff}
+			backgroundColor={variant === 'dark' ? 0x06080c : 0xffffff}
+			backgroundAlpha={variant === 'dark' ? 0.62 : 1}
+			borderWidth={2}
+			borderColor={hovered ? 0xf5c542 : 0xffffff}
+			borderAlpha={hovered ? 1 : 0.9}
 			{...buttonProps.disabled
 				? {
-						backgroundColor: 0xaaaaaa,
+						backgroundColor: 0x3a3f46,
+						backgroundAlpha: 0.5,
+						borderAlpha: 0.25,
 					}
 				: {}}
 			{...active
 				? {
-						borderWidth: 10,
-						borderColor: variant === 'dark' ? 0xffffff : 0x000000,
+						borderWidth: 6,
+						borderColor: 0xf5c542,
+						borderAlpha: 1,
 					}
 				: {}}
 		/>
